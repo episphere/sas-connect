@@ -59,7 +59,7 @@ proc plan seed=32329;
    run; 
    quit; 
 
-/* Add observation number for each random ids for merge */
+/* Add observation number for each random id for merge */
 data num_ID; 
 set randomID; 
 cnt+1; 
@@ -69,9 +69,8 @@ run;
 /* n = 24,205 */
 proc sql;
 create table ID_BEI as
-  select RandomID as Site_Subject_ID,/*SiteID name to match expectation in API, name should be changed to avoid confusion with fields that give site or subsite IDs, also does
-  capitalization matter? */
-         X,
+  select RandomID as Site_Subject_ID,
+                 X,
 		 Y,
 		 Elevation,
 		 Gradient,
